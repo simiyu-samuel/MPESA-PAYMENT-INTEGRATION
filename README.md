@@ -1,2 +1,4 @@
 # MPESA-PAYMENT-INTEGRATION
-Lipa na mpesa payment intergration using daraja API by safaricom
+# Daraja-C2B-Intergration
+Lipa na mpesa payment intergration using daraja API from safaricom
+Made By SAMUEL SIMIYU.
