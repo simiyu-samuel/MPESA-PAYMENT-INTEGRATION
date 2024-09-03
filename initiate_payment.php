@@ -4,11 +4,11 @@ if(isset($_POST['pay'])){
 
     //For access token we need this two keys(consumerKey and consumerSecret)
     //make sure to fill them with yours from the app
-    $consumerKey = '';
-    $consumerSecret = '';
+    $consumerKey = 'Keypt7N48B9aSa7P05c3XEY9tTrMO3nw';
+    $consumerSecret = 'SQhtNXAk1U2ni28V';
 
     //provide the following details, this part is found on your test credentials on the developer account
-    $PassKey = '';
+    $PassKey = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919';
     $BusinessShortCode = '174379';
 
     /*$PartyA should be the ACTUAL clients phone number or your phone number, format 2547********
@@ -19,12 +19,12 @@ if(isset($_POST['pay'])){
     for developer/test accounts, this money will be reversed automatically by midnight.*/
 
     $PartyA = $_POST['phone-no'];
-    $AccountRefference = '2255';
+    $AccountReference = '2255';
     $TransactionDesc = 'Test Payment';
     $Amount = $_POST['amount'];
     //Timestamp formart YYYYmmddhms  -> 20181004151020
     $TimeStamp = date('YmdHis');
-
+    $Password = base64_encode($BusinessShortCode.$PassKey.$TimeStamp);
     //Header for access token
     $headers = ['Content-Type:application/json; charset=utf8'];
     //M-pesa endpoint urls
@@ -59,7 +59,7 @@ if(isset($_POST['pay'])){
     //Fill in the request parameters with valid values
     'BusinessShortCode' => $BusinessShortCode,
     'Password' => $Password,
-    'Timestamp' => $Timestamp,
+    'Timestamp' => $TimeStamp,
     'TransactionType' => 'CustomerPayBillOnline',
     'Amount' => $Amount,
     'PartyA' => $PartyA,
